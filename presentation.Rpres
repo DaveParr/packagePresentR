@@ -32,9 +32,15 @@ What does a package need?
 ## Definately
 
 - `NAMESPACE`
+    + Defines search paths for your functions `myPackage::myFunction`
+    + Function Level Dependencies: `import(theirfunction, theirPackage)`
 - `DESCRIPTION`
+    + Package Metadata: Titles, Authors, Descriptions, Contacts
+    + Package Level Dependencies: Imports, Suggests, Version
 - `R/`
+    + Your R code
 - `man/`
+    + Your documentation
 
 ## Optionally
 
@@ -56,7 +62,7 @@ The Traditional Start
 package.skeleton()
 ```
 
-### The Output
+### The Method
 
 - `DESCRIPTION`
 - `NAMESPACE`
@@ -78,12 +84,11 @@ The Cute Start
 
 ## `pkgKitten`
 
-## The Function
+## The Method
 
 ```{r, eval=FALSE}
 kitten("myPackage")
 ```
-
 
 ## The Output
 
@@ -108,10 +113,10 @@ The Modern Start
 
 ## `devtools`
 
-## The Function
+## The Method
 
 ```{r, eval=FALSE}
-create("myPackage") # this is the same as through RStudio GUI
+create("myPackage")
 ```
 
 ### The Output
@@ -125,16 +130,18 @@ create("myPackage") # this is the same as through RStudio GUI
 
 ### The Approach
 
-This function gives you all the things devtools wants you to work with; a project file, git, RStudio build tools, but none of the random stuff you currently have in your session.
+This function gives you all the things devtools wants you to work with; a project file, git, RStudio build tools, but none of the random stuff you currently have in your session. Also no documentation.
 
 ## The Philosphy
 
-> Build the complete devtools way, with version control and the RStudio IDE
+> Specifically no R stuff, but specfically use git and the RStudio IDE
 
 The Friendly Modern Start
 ========================================================
 
 ## RStudio IDE
+
+## The Method
 
 File > New Project > New Directory > R Package
 
