@@ -1,4 +1,4 @@
-Packges: Structure and Tools
+Packages: Structure and Tools
 ========================================================
 author: David Parr
 date: `r format(Sys.time(), "%Y-%b-%d")`
@@ -61,7 +61,9 @@ package.skeleton()
 - `DESCRIPTION`
 - `NAMESPACE`
 - `/man`
+    + things in your environment
 - `/R`
+    + things in your environment
 
 ### The Approach
 
@@ -69,7 +71,37 @@ This function will inspect the global environment and attempt to compile source 
 
 ### The Philosphy
 
-Any R stuff you are currently working on should be a package,and only R stuff
+> Any R stuff you are currently working on, and only R stuff
+
+The Cute Start
+========================================================
+
+## `pkgKitten`
+
+## The Function
+
+```{r, eval=FALSE}
+kitten("myPackage")
+```
+
+
+## The Output
+
+- `DESCRIPTION`
+- `NAMESPACE`
+- `/man`
+    + `hello.Rd`
+    + `myPackage-package.Rd`
+- `/R`
+    + `hello.R`
+
+## The Approach
+
+The Traditional method (probably) won't actually give you a package you can build. This method guarantees that the output will build, with documented functions and `myPackage-package` in an `.Rd`
+
+## The Philosophy
+
+> Your package definately should build immediately. Think of the kittens.
 
 The Modern Start
 ========================================================
@@ -79,7 +111,7 @@ The Modern Start
 ## The Function
 
 ```{r, eval=FALSE}
-create("myPackage")
+create("myPackage") # this is the same as through RStudio GUI
 ```
 
 ### The Output
@@ -97,5 +129,38 @@ This function gives you all the things devtools wants you to work with; a projec
 
 ## The Philosphy
 
-Build the devtools way, with version control and the RStudio IDE
+> Build the complete devtools way, with version control and the RStudio IDE
 
+The Friendly Modern Start
+========================================================
+
+## RStudio IDE
+
+File > New Project > New Directory > R Package
+
+### The Output
+
+- `DESCRIPTION`
+- `NAMESPACE`
+- `/R`
+    + `hello.R`
+- `/man`
+    + `hello.Rd`
+- `myPackage.Rproj`
+- `.gitignore`
+- `.Rbuildignore`
+
+## The Approach
+
+The GUI interface is new user friendly, and the prepopulated example functions help you build out the contents. This method can also optionally source existing files to build from, but also includes git and projects. The function document is based on the `roxygen2` syntax. 
+
+## The Philosophy
+
+> Modern, but more helpful
+
+Why Document?
+========================================================
+
+> Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.
+
+from [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/man.html)
