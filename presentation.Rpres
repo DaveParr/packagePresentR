@@ -172,6 +172,14 @@ Why Document?
 
 from [R packages by Hadley Wickham](http://r-pkgs.had.co.nz/man.html)
 
+## Example Function
+
+```{r eval=FALSE}
+hello <- function(text="Hello, world!") {
+  print(text)
+}
+```
+
 The Traditional Markup Documentation
 ========================================================
 
@@ -217,21 +225,9 @@ Bones
 
 ## `roxygen2`
 
-## Function
-
-```{r eval=FALSE}
-hello <- function(text="Hello, world!") {
-  print(text)
-}
-```
-
 ## The Method
 
-Code > Insert Roxygen Skeleton  
-
-OR
-
-`Ctrl` + `Shift` + `Alt` + `R` with cursor inside the function
+Code > Insert Roxygen Skeleton OR `Ctrl` + `Shift` + `Alt` + `R` with cursor inside the function
 
 ## The Output
 
@@ -244,7 +240,6 @@ OR
 #' @export
 #'
 #' @examples
-#' 
 ```
 
 ## The Approach
@@ -253,7 +248,7 @@ Quickly inserts the bare minimum into your `.R` file, which can then be processe
 
 ## The Philosophy
 
-> Quickly do the bare minimum
+> Quick boilerplate
 
 And Meat On Them
 ========================================================
@@ -284,7 +279,7 @@ Select the name of the function in the .R file > Addins > createOxygen
 
 ## The Approach
 
-Inserts a lot more information such as default arguments, which is more specified to your work, into the file. Can be done interactively as well for more control.
+Inserts a lot more information such as default arguments, which is more specified to your work, into the file. 
 
 ## The Philosophy
 
