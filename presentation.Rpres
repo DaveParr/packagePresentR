@@ -145,6 +145,16 @@ The Friendly Modern Start
 
 File > New Project > New Directory > R Package
 
+## The Approach
+
+The GUI interface is new user friendly, and the prepopulated example functions help you build out the contents. This method can also optionally source existing files to build from, but also includes git and projects. The function document is based on the `roxygen2` syntax. 
+
+## The Philosophy
+
+> Modern, but more helpful
+
+***
+
 ### The Output
 
 - `DESCRIPTION`
@@ -157,13 +167,46 @@ File > New Project > New Directory > R Package
 - `.gitignore`
 - `.Rbuildignore`
 
+The Local Brew
+========================================================
+
+## `proJectsPKG`
+
+## The Method
+
+```{r, eval=FALSE}
+createPackageProject("myPackage")
+```
+
 ## The Approach
 
-The GUI interface is new user friendly, and the prepopulated example functions help you build out the contents. This method can also optionally source existing files to build from, but also includes git and projects. The function document is based on the `roxygen2` syntax. 
+Give me all the tools, including continuous integration, code coverage, and all the package level documentation.
 
 ## The Philosophy
 
-> Modern, but more helpful
+> Best Practice. It even says it on a button.
+
+***
+
+### The Output
+
+- `DESCRIPTION`
+- `NAMESPACE`
+- `LICENSE`
+- `/R`
+    + `myPackage-package.R`
+- `/tests`
+    + `testthat.R`
+    + `/testthat`
+- `/vignettes`
+    + `pRojectsPKG.Rmd`
+- `myPackage.Rproj`
+- `.gitignore`
+- `.Rbuildignore`
+- `CONDUCT.md`
+- `NEWS.md`
+- `.travis.yml`
+- `codecov.yml`
 
 Why Document?
 ========================================================
