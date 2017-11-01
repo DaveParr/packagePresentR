@@ -1,13 +1,16 @@
-Packages: Structure and Tools
-========================================================
-author: David Parr
-date: `r format(Sys.time(), "%Y-%b-%d")`
-autosize: true
+---
+title: "Packages: Structure and Tools"
+author: "David Parr"
+date: "1 November 2017"
+output: 
+  revealjs::revealjs_presentation:
+    theme: moon
+    center: true
+---
 
-What is a package?
-========================================================
+## What is a package?
 
-> A package is a template or set of conventions that structures your code. 
+A package is a template or set of conventions that structures your code. 
 
 from [Devtools Readme](https://cran.r-project.org/web/packages/devtools/README.html)
 
@@ -19,15 +22,13 @@ The package is then loaded with
 
 `library(myPackage)`
 
-Why?
-========================================================
+## Why?
 
-> This not only makes sharing code easy, it reduces the time and effort required to complete you project: following a template removes the need to have to think about how to organize things and paves the way for the creation of standardised tools that can further accelerate your progress.
+This not only makes sharing code easy, it reduces the time and effort required to complete you project: following a template removes the need to have to think about how to organize things and paves the way for the creation of standardised tools that can further accelerate your progress.
 
 from [Devtools Readme](https://cran.r-project.org/web/packages/devtools/README.html)
 
-What does a package need?
-========================================================
+# What does a package need?
 
 ## Definately
 
@@ -51,18 +52,17 @@ What does a package need?
 - `inst/`
 - `probably many more/`
 
-The Traditional Start
-========================================================
+# The Traditional Start
 
-## `Utils`
+## The Method
 
-## The Function
+`Utils`
 
 ```{r, eval=FALSE}
 package.skeleton()
 ```
 
-### The Method
+## The Output
 
 - `DESCRIPTION`
 - `NAMESPACE`
@@ -71,20 +71,19 @@ package.skeleton()
 - `/R`
     + things in your environment
 
-### The Approach
+## The Approach
 
 This function will inspect the global environment and attempt to compile source code and datasets from the objects within.
 
-### The Philosphy
+## The Philosphy
 
 > Any R stuff you are currently working on, and only R stuff
 
-The Cute Start
-========================================================
-
-## `pkgKitten`
+# The Cute Start
 
 ## The Method
+
+`pkgKitten`
 
 ```{r, eval=FALSE}
 kitten("myPackage")
@@ -108,18 +107,17 @@ The Traditional method (probably) won't actually give you a package you can buil
 
 > Your package definately should build immediately. Think of the kittens.
 
-The Modern Start
-========================================================
-
-## `devtools`
+# The Modern Start
 
 ## The Method
+
+`devtools`
 
 ```{r, eval=FALSE}
 create("myPackage")
 ```
 
-### The Output
+## The Output
 
 - `DESCRIPTION`
 - `NAMESPACE`
@@ -128,7 +126,7 @@ create("myPackage")
 - `.gitignore`
 - `.Rbuildignore`
 
-### The Approach
+## The Approach
 
 This function gives you all the things devtools wants you to work with; a project file, git, RStudio build tools, but none of the random stuff you currently have in your session. Also no documentation.
 
@@ -136,26 +134,15 @@ This function gives you all the things devtools wants you to work with; a projec
 
 > Specifically no R stuff, but specfically use git and the RStudio IDE
 
-The Friendly Modern Start
-========================================================
-
-## RStudio IDE
+# The Friendly Modern Start
 
 ## The Method
 
+R Studio IDE
+
 File > New Project > New Directory > R Package
 
-## The Approach
-
-The GUI interface is new user friendly, and the prepopulated example functions help you build out the contents. This method can also optionally source existing files to build from, but also includes git and projects. The function document is based on the `roxygen2` syntax. 
-
-## The Philosophy
-
-> Modern, but more helpful
-
-***
-
-### The Output
+## The Output
 
 - `DESCRIPTION`
 - `NAMESPACE`
@@ -167,28 +154,26 @@ The GUI interface is new user friendly, and the prepopulated example functions h
 - `.gitignore`
 - `.Rbuildignore`
 
-The Local Brew
-========================================================
+## The Approach
 
-## `proJectsPKG`
+The GUI interface is new user friendly, and the prepopulated example functions help you build out the contents. This method can also optionally source existing files to build from, but also includes git and projects. The function document is based on the `roxygen2` syntax. 
+
+## The Philosophy
+
+> Modern, but more helpful
+
+# The Local Brew
 
 ## The Method
+
+`proJectsPKG`
 
 ```{r, eval=FALSE}
 createPackageProject("myPackage")
 ```
 
-## The Approach
+## The Output
 
-Give me all the tools, including continuous integration, code coverage, and all the package level documentation.
-
-## The Philosophy
-
-> Best Practice. It even says it on a button.
-
-***
-
-### The Output
 
 - `DESCRIPTION`
 - `NAMESPACE`
@@ -208,8 +193,17 @@ Give me all the tools, including continuous integration, code coverage, and all 
 - `.travis.yml`
 - `codecov.yml`
 
-Why Document?
-========================================================
+## The Approach
+
+Give me all the tools, including continuous integration, code coverage, and all the package level documentation.
+
+## The Philosophy
+
+> Best Practice. It even says it on a button.
+
+# Why Document?
+
+## Hadley Says
 
 > Documentation is one of the most important aspects of a good package. Without it, users won’t know how to use your package. Documentation is also useful for future-you (so you remember what your functions were supposed to do), and for developers extending your package.
 
@@ -223,14 +217,13 @@ hello <- function(text="Hello, world!") {
 }
 ```
 
-The Traditional Markup Documentation
-========================================================
-
-## `.Rd` - R Documentation Files
+# The Traditional Markup Documentation
 
 ## The Method
 
-- Loosely based on \( \LaTeX \)
+`.Rd` - R Documentation Files
+
+- Loosely based on LaTeX
 - Lots of `\markup{argument}` wrappers
     + This can be for a section, e.g. `\title{myFunction}`
     + or for formatting, or navigation, e.g. `\code{\link{myOtherFunction}}`
@@ -245,17 +238,14 @@ Write a brand new set of documentation, in a different (probably unfamiliar lang
 > Any R stuff that you currently don't have open, and not in R
 
 
-The Modern Markdown Documentation
-========================================================
+# The Modern Markdown Documentation
 
-## `roxygen2`
+## The Approach
 
-## The Method
+`roxygen2`
 
 - Based in `markdown`
 - Only use LaTeX and nesting if you want to for formatting
-
-## The Approach
 
 Write documentation in the `.R` file it refers to in Markdown and preface each line with `#'`. When the package is "documented" these files will be translated into `.Rd` files in the right place, which will populate the help pages.
 
@@ -263,12 +253,11 @@ Write documentation in the `.R` file it refers to in Markdown and preface each l
 
 > Write in (nearly) normal syntax, in the `.R` file it refers to
 
-Bones
-========================================================
-
-## `roxygen2`
+# Bones
 
 ## The Method
+
+`roxygen2`
 
 Code > Insert Roxygen Skeleton OR `Ctrl` + `Shift` + `Alt` + `R` with cursor inside the function
 
@@ -293,16 +282,13 @@ Quickly inserts the bare minimum into your `.R` file, which can then be processe
 
 > Quick boilerplate
 
-And Meat On Them
-========================================================
-
-## `sinew` 
-
-## The Method
-
-Select the name of the function in the .R file > Addins > createOxygen
+# And Meat On TheM
 
 ## The Output
+
+`sinew`
+
+Select the name of the function in the .R file > Addins > createOxygen
 
 ```
 #' @title FUNCTION_TITLE
