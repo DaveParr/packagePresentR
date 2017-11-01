@@ -174,7 +174,6 @@ createPackageProject("myPackage")
 
 ## The Output
 
-
 - `DESCRIPTION`
 - `NAMESPACE`
 - `LICENSE`
@@ -188,6 +187,9 @@ createPackageProject("myPackage")
 - `myPackage.Rproj`
 - `.gitignore`
 - `.Rbuildignore`
+
+## The Output Extended
+
 - `CONDUCT.md`
 - `NEWS.md`
 - `.travis.yml`
@@ -223,13 +225,29 @@ hello <- function(text="Hello, world!") {
 
 `.Rd` - R Documentation Files
 
+```{r, eval=FALSE}
+\name{hello}
+\alias{hello}
+\title{Hello, World!}
+\usage{
+hello()
+}
+\description{
+Prints 'Hello, world!'.
+}
+\examples{
+hello()
+}
+```
+    
+##  The Approach
+
+
 - Loosely based on LaTeX
 - Lots of `\markup{argument}` wrappers
     + This can be for a section, e.g. `\title{myFunction}`
     + or for formatting, or navigation, e.g. `\code{\link{myOtherFunction}}`
 - Lots of nesting
-    
-##  The Approach
 
 Write a brand new set of documentation, in a different (probably unfamiliar language), in a different file to the one it's about. When the package is rendered, the files will populate the help pages.
 
@@ -237,31 +255,13 @@ Write a brand new set of documentation, in a different (probably unfamiliar lang
 
 > Any R stuff that you currently don't have open, and not in R
 
-
-# The Modern Markdown Documentation
-
-## The Approach
-
-`roxygen2`
-
-- Based in `markdown`
-- Only use LaTeX and nesting if you want to for formatting
-
-Write documentation in the `.R` file it refers to in Markdown and preface each line with `#'`. When the package is "documented" these files will be translated into `.Rd` files in the right place, which will populate the help pages.
-
-## The Philosphy 
-
-> Write in (nearly) normal syntax, in the `.R` file it refers to
-
-# Bones
+# The Modern Markdown Documentation: Bones
 
 ## The Method
 
 `roxygen2`
 
 Code > Insert Roxygen Skeleton OR `Ctrl` + `Shift` + `Alt` + `R` with cursor inside the function
-
-## The Output
 
 ```
 #' Title
@@ -276,15 +276,18 @@ Code > Insert Roxygen Skeleton OR `Ctrl` + `Shift` + `Alt` + `R` with cursor ins
 
 ## The Approach
 
-Quickly inserts the bare minimum into your `.R` file, which can then be processed at documentation.
+- Based in `markdown`
+- Only use LaTeX and nesting if you want to for formatting
 
-## The Philosophy
+Write documentation in the `.R` file it refers to in Markdown and preface each line with `#'`. When the package is "documented" these files will be translated into `.Rd` files in the right place, which will populate the help pages.
 
-> Quick boilerplate
+## The Philosphy 
 
-# And Meat On TheM
+> Write in (nearly) normal syntax, in the `.R` file it refers to
 
-## The Output
+# The Modern Markdown Documentation: And Meat On TheM
+
+## The Method
 
 `sinew`
 
